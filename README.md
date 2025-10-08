@@ -47,26 +47,3 @@ The overall setup involves three major layers:
 ---
 
 ## 🧩 Repository Structure
-
-   ├── ns3_scripts/
-   │ ├── rtds-Tap-ICS-Mod.cc # Main ns-3 attack interception script
-   │ ├── ns3.conf # Attack configuration file (modifications)
-   │ └── setupInterface.sh # Linux bridge + TAP setup script
-   │
-   ├── rtds_models/
-   │ ├── IEEE_14bus_RSCAD.draft # Power network schematic
-   │ ├── GTNET_Config.png # GTNET/DNP3 setup screenshot
-   │ └── PA_Suite_Baseline.png # RSCAD P&A Suite measurement baseline
-   │
-   ├── captures/
-   │ ├── before_attack.pcap # Baseline communication trace
-   │ ├── after_attack.pcap # Post-attack capture (Wireshark)
-   │ └── analysis_notes.txt
-   │
-   ├── results/
-   │ ├── figures/ # Screenshots, plots
-   │ ├── testbed_flowchart.png # Flowchart of architecture
-   │ └── results_summary.pdf
-   │
-   └── README.md
-   
