@@ -1,0 +1,37 @@
+#!/bin/bash
+# Setup Interfaces
+
+sudo ip link add name br0 type bridge
+sudo ip link add name br1 type bridge
+
+sudo ip tuntap add mode tap tap00
+sudo ip tuntap add mode tap tap01
+
+sudo ip link set dev tap00 address 00:00:00:00:01:20
+sudo ip address add 0.0.0.0 dev tap00
+sudo ip link set dev tap00 promisc on
+sudo ip link set dev tap00 up
+
+sudo ip link set dev tap01 address 00:00:00:00:01:21
+sudo ip address add 0.0.0.0 dev tap01
+sudo ip link set dev tap01 promisc on
+sudo ip link set dev tap01 up
+
+sudo ip link set dev enx00e04c6800ca down
+sudo ip address add 0.0.0.0 dev enx00e04c6800ca
+sudo ip link set dev enx00e04c6800ca up
+
+sudo ip link set dev enx00e099001f10 down
+sudo ip address add 0.0.0.0 dev enx00e099001f10
+sudo ip link set dev enx00e099001f10 up
+
+sudo ip link set dev tap00 master br0
+sudo ip link set dev enx00e04c6800ca master br0
+
+sudo ip link set dev tap01 master br1
+sudo ip link set dev enx00e099001f10 master br1
+
+sudo ip link set dev br0 up
+sudo ip link set dev  br1 up
+sudo ip link set dev  enx00e04c6800ca promisc on
+sudo ip link set dev  enx00e099001f10 promisc on
